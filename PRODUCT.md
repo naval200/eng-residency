@@ -46,5 +46,6 @@ Semantic HTML, keyboard navigation, visible focus, adequate contrast, form label
 ## Open Decisions
 
 - Formspree endpoint (owner pastes into `js/config.js` before live submissions).
-- Exact venue, dates, and supplier quotes (TBC; site must say so).
+- Exact venue and supplier quotes (TBC; site must say so).
+- Tentative cohort windows: December (cold), January (cold), February (nicer) — not fixed dates.
 - Hosting target (any static host).
