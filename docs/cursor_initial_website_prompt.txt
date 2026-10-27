@@ -1,0 +1,204 @@
+# Cursor prompt: build the initial Rishikesh Learning Residency website
+
+You are working in an existing codebase. First inspect the repository, identify its framework, styling system, existing routes, and conventions, then implement the page using the current stack. Do not replace the project setup or introduce a new framework. Keep the implementation small and easy to maintain.
+
+## Goal
+
+Build a polished, responsive one-page website for a **30-day self-directed learning residency in Rishikesh**. The working name is **Rishikesh Learning Residency**. The first cohort is aimed especially at software engineers and technology professionals between jobs who want to use a month to learn something difficult, build a project, and spend time with a good peer group.
+
+This is not a bootcamp, job-placement service, online course, formal yoga retreat, or workation package. We do not provide a fixed curriculum, course library, instructors for every subject, certification, or a promise of employment. Participants create their own learning track and use their own resources. The product is a place to focus, community, accountability, coordination, and optional local experiences.
+
+Do not invent the cohort dates, venue address, testimonials, number of alumni, partnerships, contact email, provider commitments, or final prices. Make the pricing status explicit.
+
+## Core positioning and copy
+
+Use this general voice: calm, direct, human, practical, not corporate. Avoid AI/startup buzzwords, generic SaaS language, excessive cards, fake urgency, and long paragraphs.
+
+Suggested hero:
+
+**Headline:** A month to learn something difficult, with good people around you.
+
+**Subheading:** A self-directed learning residency in Rishikesh for people between jobs and others taking a deliberate learning break. Choose what to study, make a plan, and work on it alongside people doing the same.
+
+**Primary CTA:** Express interest  
+**Secondary CTA:** How it works
+
+The primary CTA must open a proper, mobile-friendly residency interest form. The form should feel thoughtful and human, not like a generic SaaS lead form. Because it asks several questions, use a dedicated `/apply` route or a well-designed multi-step form rather than a tiny modal. A user should be able to save nothing and return later; do not store personal data in local storage.
+
+Suggested short intro:
+
+You bring the goal and learning material. We bring a place to focus, a community that helps you keep going, and a few ways to spend time outside the desk. There is no fixed curriculum. Peers and the host check in on progress; you own the work.
+
+## Page structure
+
+Build one page with these sections. Reuse the project's component and design conventions if available.
+
+### 1. Hero
+
+Lead with the headline, brief subheading, and two clear links/buttons. Use a quiet, editorial composition. One strong photograph of the Ganga, Rishikesh hills, or a small group working together is enough if suitable licensed imagery is readily available. Prefer existing local assets if present. Do not use unlicensed photos or hotlink random images. Record any image source/credit in the README. If a trustworthy image is not immediately available, create a good CSS-based visual treatment rather than blocking the page.
+
+### 2. What it is
+
+Explain in a few sentences that this is a 30-day self-directed learning residency. It is meant especially for people between jobs. Participants choose their own focus: AI skills, backend or distributed systems, full-stack or frontend work, an online course, or a project they want to finish. They use their own courses and resources; the residency does not provide a proprietary course library.
+
+Make the distinction clear without sounding defensive: **not a bootcamp, not job placement, not a fixed curriculum.**
+
+### 3. How it works
+
+Use three simple steps, not a large feature grid:
+
+1. **Create your track.** Participants use [studycoach.diy](https://studycoach.diy) to turn a learning goal into a concrete plan.
+2. **Work alongside peers.** Residents and the host check in on progress, share ideas, and help each other stay accountable. The expected commitment is at least 20 hours of focused learning/building per week.
+3. **Use the month well.** Make progress on a course or project while living in Rishikesh. There are optional activities, not a compulsory timetable.
+
+Link the study-track step to studycoach.diy. Link the example-project section to the GitHub repository listed below.
+
+### 4. Optional activities
+
+Keep this section warm and understated. Explain that residents can do kayaking, yoga, spiritual study, or none of these. These options should not look like a mandatory package.
+
+- **Kayaking:** We are exploring early-morning practice for one hour a day during the first ten days at a working estimate of ₹1,000 per session. This is an unconfirmed proposed arrangement; do not describe it as booked or guaranteed. Show it as “being explored; details subject to operator and safety confirmation.” Link to [Team4Adventure](https://team4adventure.com/kayaking-course-basic) only as a potential local kayaking operator, not as confirmation that this exact arrangement exists.
+- **Yoga:** Yoga drop-in classes are available locally. Sessions are optional, with current class prices paid separately to the studio unless a group arrangement is confirmed.
+- **Kirtan / spiritual learning:** We are exploring local options for kirtan and other spiritual subjects. Working estimates are ₹5,000 for seven days or ₹20,000 for a month before the coordination fee; rates, dates, and provider arrangements need confirmation. People who are interested can ask us for options.
+
+Do not imply that all these activities are included in the core residency price.
+
+### 5. Where
+
+Say that the residency is planned for Rishikesh, Uttarakhand. Tapovan is the initial area being explored, but do not publish an exact venue or imply it is booked. The appeal is a mix of the Ganga, hills, cafes, kayaking, yoga, and places to explore spiritual subjects. Avoid generic travel-brochure copy.
+
+### 6. About Naval
+
+Use first-person copy:
+
+“I’m Naval Saini, a senior product engineer and founder. I’ve built products across startups, fintech, trading and payments, analytics, and consumer software. My background includes around four years at Bitfinex working on trading, P2P, and payments; founding-engineer work at a YC-backed startup; and an internal energy-forecasting platform at McKinsey. I now build products independently through Gradient Games, including Halfchess and RSVP.Dance.
+
+I’m also working through my own AI engineering learning track in public. I want to build a place where people can take their own learning seriously, make progress alongside capable peers, and have a healthier month while they do it.”
+
+Add three plain text links:
+- **View CV:** https://docs.google.com/document/d/1HpagfX0jXN2ov1obf1JOlhFq2pX6bAbXEfdLFe5IGxw/edit?usp=sharing
+- **My AI learning track:** https://github.com/naval200/ai-study
+- **Studycoach:** https://studycoach.diy
+
+Open external links safely in a new tab when consistent with the project's conventions. The GitHub example is a personal public learning project, not a claim that every participant must follow the same plan.
+
+### 7. Community
+
+Explain that the existing community is mostly made up of people independently learning AI, backend/distributed systems, full-stack/frontend skills, or taking an online course or building a project while looking for work or preparing for their next role.
+
+The residency gives this kind of learning a shared place and a month-long rhythm. Keep it welcoming but do not use unverified claims about community size or outcomes.
+
+### 8. Costs
+
+Be transparent without pretending supplier rates are final. Include a compact breakdown and a clear note that pricing is a working estimate.
+
+Working 30-day assumptions:
+- Shared room: ₹1,000 per person per day = ₹30,000 for 30 days.
+- Community food: ₹500 per person per day = ₹15,000 for 30 days.
+- These add up to ₹45,000 before workspace and common operating costs.
+- We propose a clearly disclosed 15% coordination/community-management fee on direct and shared costs we arrange. This covers supplier coordination, community management, communications, and day-to-day logistics.
+- With shared workspace, internet/power, local coordination, and first-cohort setup costs spread across 12–15 people, the current planning range is approximately **₹62,000–66,000 per person for 30 days in a shared room**, before optional activities. This is an estimate, not a confirmed price or supplier quote.
+
+Suggested copy:
+
+“Prices are still being confirmed with local providers. Our current planning estimate for the 30-day core residency is ₹62,000–66,000 per person in a shared room, based on a group of 12–15 people. It includes accommodation, community food, a simple shared workspace, and coordination. We add a clearly itemized 15% fee to the costs we arrange. Optional activities cost extra. You will receive the final itemized price and cancellation terms before committing.”
+
+Optional estimates may appear in a small expandable “Optional activities” detail, not as price cards:
+- Proposed kayaking package: 10 early-morning sessions × ₹1,000 = ₹10,000; with 15% fee, ₹11,500. Clearly mark **not confirmed with the operator**.
+- Kirtan: ₹5,000 for 7 days / ₹20,000 for a month; with 15% fee, ₹5,750 / ₹23,000 if arranged by us. Provider and dates not confirmed.
+- Yoga drop-ins: price varies by studio and is paid separately unless agreed otherwise.
+
+Do not add a 25–30% surcharge just because a participant is from abroad. Keep one core price for the same service; display currency conversion and payment-provider fees clearly if relevant. Do not take online payments on this first website.
+
+### 9. Residency interest form — primary CTA destination
+
+The main “Express interest” CTA should open a dedicated `/apply` page, or an equally clear multi-step form if that matches the existing app architecture. This is an **interest and planning form**, not a confirmed booking or a promise of admission. The aim is to understand who is interested, what they want to learn, what price may work for them, and what kind of living/work setup the cohort should offer.
+
+Use a simple progress indicator and three short steps. Let people move backwards and review answers before submitting. Keep the visual design calm and uncluttered; use conditional follow-up fields only when relevant. Mark LinkedIn and project links optional, but encourage them because they help us understand a person's background. Budget should be asked directly and respectfully.
+
+**Step 1 — About you**
+- Full name (required)
+- Email (required)
+- LinkedIn profile URL (optional; validate URL if supplied)
+- Current situation (required single choice): between jobs / employed and planning a break / freelance or independent / student / other
+- Current or most recent role and a short description of past experience (required textarea)
+- Approximate professional experience: no professional experience yet / under 2 years / 2–5 years / 6–10 years / 10+ years
+- GitHub, portfolio, or project URL (optional)
+
+**Step 2 — What do you want to learn?**
+- Main learning focus (required choice): AI/ML or AI engineering / backend or distributed systems / full-stack or frontend / online course / personal project or startup idea / other
+- What specifically would you like to learn or build during the month? (required textarea)
+- What is your current experience with this topic? (required textarea; invite an honest description rather than a résumé)
+- What would meaningful progress look like by the end of 30 days? (required textarea)
+- Are you already following a course or using a learning plan? (optional): yes, with a field to link it / no, not yet
+- Link to an existing Studycoach plan, course, GitHub repo, or project (optional)
+- Confirm they can commit to roughly 20 hours/week of self-directed study/building (required yes/no). If no, ask what commitment they realistically expect.
+
+Link to [studycoach.diy](https://studycoach.diy) beside the learning-plan question. Explain that participants create their own plan and bring their own learning resources.
+
+**Step 3 — Can the residency work for you?**
+- Dates or month they could attend, or a free-text availability field (required; do not invent dates)
+- **Budget for the full 30-day core residency** (required single choice): under ₹50,000 / ₹50,000–60,000 / ₹60,000–70,000 / ₹70,000–80,000 / above ₹80,000 / need a clearer breakdown before deciding. Add a brief note that the current planning estimate is ₹62,000–66,000 in a shared room, not a confirmed final quote.
+- **Budget for optional activities** (optional): ₹0 / up to ₹5,000 / ₹5,000–10,000 / ₹10,000–20,000 / more than ₹20,000 / undecided.
+- Accommodation preference (required): shared room / would consider a private room if available and priced separately / flexible.
+- **Food arrangement preference** (required): shared community meals most days / two meals a day / breakfast plus flexible meals / prefer to arrange my own food / flexible. State that exact meal arrangements are still being negotiated.
+- Dietary preference (required choice): vegetarian / vegan / eggetarian / non-vegetarian / Jain / no specific preference / other.
+- Food allergies or dietary needs (optional text field).
+- Facilities important to them (multi-select): reliable high-speed internet / power backup / quiet desk or study area / quiet place for video calls / heater in winter / hot water / laundry access / desk in room / nearby cafes / fitness or yoga nearby / other. Label these as preferences we will try to accommodate, not confirmed amenities.
+- Optional activities they may join (multi-select): kayaking / yoga drop-ins / kirtan or spiritual study / hiking or other outdoor activities / none for now / not sure.
+- What would make the month worthwhile for them? (optional textarea)
+- Any non-negotiable needs or other comments? (optional textarea)
+- How did they hear about the residency? (optional short text)
+- Consent checkbox (required): “I understand this is a self-directed residency, that the prices and activities are still being confirmed, and that this form is an expression of interest—not a booking.”
+
+**Form behavior and privacy**
+- Use accessible labels, clear required/optional indicators, inline validation, keyboard navigation, and helpful error messages.
+- Preserve form state only in in-memory client state while the page is open. Do not store personal data in local storage, analytics, or any third-party service that has not been configured and approved.
+- Do not ask for sensitive personal information, salary, employer confidential information, or documents.
+- On the review screen, show a readable summary before submission so the person can correct mistakes.
+- The user has not supplied a contact email or backend. Do not invent either and do not pretend submissions are being received. Build a clean submission adapter with a single clearly documented configuration point. If no destination is configured, show a clear notice before people fill the form that submissions are not connected yet; on submit, explicitly state that nothing was sent. Do not display a false “application received” success state. Document how to connect a proper form provider or backend before launch.
+- Do not accept payments through this first website. The form is for demand validation and learning preferences, not a financial commitment.
+
+### 10. FAQ
+
+Keep answers short:
+- Is this a course? No. It is self-directed; participants use their own learning resources.
+- Do I need to be between jobs? That is the main audience, but anyone with the time and commitment may express interest.
+- Is there a fixed curriculum? No. Each participant creates a learning track and goal.
+- Are yoga and kayaking included? They are optional extras and depend on final local arrangements.
+- Is the price final? Not yet. The itemized final price and cancellation terms will be shared before anyone commits.
+- Will this help me get a job? We do not promise placement. The aim is to make focused progress on skills or a project.
+
+### 11. Footer
+
+Include working name, “Rishikesh, Uttarakhand — venue and dates to be confirmed,” links to CV, studycoach.diy, and GitHub. No invented company contact details. Use a restrained footer.
+
+## Visual direction
+
+- Calm, tactile, editorial, outdoors-oriented—not a generic SaaS landing page.
+- Plenty of breathing room; restrained colours inspired by river water, stone, forest, and warm paper.
+- Strong typography and a clear hierarchy. Use one display face and one readable body face only if the project already supports them or loading them is straightforward.
+- Avoid purple/blue AI gradients, excessive rounded cards, badges, animated counters, stock-style smiling-team photos, and decorative icons for every section.
+- Prefer a few generous sections and short paragraphs. Keep the page human and low-pressure.
+- Make the mobile version feel intentionally designed, not just stacked desktop sections.
+
+## Implementation requirements
+
+- Inspect before editing and preserve existing project structure.
+- Implement the complete responsive page, navigation/anchor links, form validation, and hover/focus states.
+- Use semantic HTML, accessible labels, keyboard navigation, adequate contrast, image alt text, and reduced-motion support if any motion is used.
+- No database, authentication, payment integration, analytics, or new heavy dependencies.
+- Never claim the form works until a destination is configured. Put setup steps and any image credits in the README or a short website setup note.
+- Add basic metadata (title, description, Open Graph title/description) using the project’s conventions.
+- Run the project’s existing lint/test/build checks and fix errors caused by the changes.
+
+## Acceptance criteria
+
+1. The page communicates the concept in under a minute.
+2. Visitors understand that it is self-directed, community-based, and intended especially for people between jobs.
+3. About Naval includes the CV, GitHub learning project, and studycoach links.
+4. Pricing is clearly provisional; the 15% fee is disclosed; optional activity costs are not presented as confirmed.
+5. The CTA opens a mobile-friendly multi-step interest form that asks about background, LinkedIn, learning goals, budget, food, accommodation, facilities, and optional activities. It validates inputs and never gives a false success message.
+6. There are no invented dates, confirmed venues, testimonials, partners, or outcomes.
+7. The page looks polished on mobile and desktop and uses the repository’s existing stack.
+8. The implementation is easy to revise after the first supplier quotes and first-cohort feedback.

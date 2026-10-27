@@ -1,0 +1,10 @@
+.DS_Store
+coverage/
+.impeccable/
+node_modules/
+.vercel/
+.netlify/
+*.log
+.env
+.env.*
+!.env.example

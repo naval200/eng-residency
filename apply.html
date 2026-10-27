@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Express interest — Rishikesh Learning Residency</title>
+  <meta name="description" content="Share your background, learning goals, and preferences for the Rishikesh Learning Residency. Expression of interest — not a booking.">
+  <meta property="og:title" content="Express interest — Rishikesh Learning Residency">
+  <meta property="og:description" content="Interest and planning form for a self-directed learning residency in Rishikesh.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,500;0,700;1,500&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="page-apply">
+  <!--
+    THESIS: A calm multi-step interest conversation — not a SaaS lead form.
+    OWN-WORLD: Same stone-paper / river-teal system as the landing page.
+    STORY: Visitor shares background and goals; host can follow up on WhatsApp.
+    FIRST VIEWPORT: Clear title, honesty about interest-not-booking, progress, step 1.
+    FORM: Brief-pinned outdoors editorial; operate-mode clarity for the form.
+    FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, and DESIGN.md
+  -->
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="brand" href="index.html">Rishikesh Learning Residency</a>
+      <nav class="nav" aria-label="Primary">
+        <a href="index.html#how-it-works">How it works</a>
+        <a href="index.html#costs">Costs</a>
+        <a class="nav__cta" href="apply.html" aria-current="page">Express interest</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="form-shell">
+    <div class="apply-hero">
+      <h1>Express interest</h1>
+      <p>This is an interest and planning form — not a booking or a promise of admission. It helps us understand who you are, what you want to learn, and whether the residency can work for you. I’ll usually follow up on WhatsApp for a short chat.</p>
+    </div>
+
+    <div id="config-banner" class="banner" role="status" hidden>
+      <strong>Submissions are not connected yet.</strong> You can still fill out the form to see how it works. Until a Formspree endpoint is set in <code>js/config.js</code>, nothing will be sent when you submit.
+    </div>
+
+    <ol class="progress" id="apply-progress" aria-label="Form progress">
+      <li data-progress aria-current="step">1. About you</li>
+      <li data-progress>2. Learning</li>
+      <li data-progress>3. Fit</li>
+      <li data-progress>4. Review</li>
+    </ol>
+
+    <div id="form-result" class="form-result" tabindex="-1">
+      <h2 id="form-result-title"></h2>
+      <div id="form-result-body"></div>
+    </div>
+
+    <form id="interest-form" novalidate>
+      <!-- Step 1 -->
+      <section class="form-panel is-active" data-step="about" aria-labelledby="step1-title">
+        <h2 id="step1-title">About you</h2>
+
+        <div class="field">
+          <label for="full_name">Full name <span class="req" aria-hidden="true">*</span></label>
+          <input id="full_name" name="full_name" type="text" autocomplete="name" data-required>
+          <p class="field-error" role="alert">This field is required.</p>
+        </div>
+
+        <div class="field">
+          <label for="email">Email <span class="req" aria-hidden="true">*</span></label>
+          <input id="email" name="email" type="email" autocomplete="email" data-required>
+          <p class="field-error" role="alert">Enter a valid email address.</p>
+        </div>
+
+        <div class="field">
+          <label for="linkedin">LinkedIn profile URL <span class="opt">(optional — helpful)</span></label>
+          <input id="linkedin" name="linkedin" type="url" inputmode="url" placeholder="https://linkedin.com/in/…">
+          <span class="hint">A link helps us understand your background.</span>
+          <p class="field-error" role="alert">Enter a full URL starting with https://</p>
+        </div>
+
+        <div class="field">
+          <span class="label" id="situation-label">Current situation <span class="req" aria-hidden="true">*</span></span>
+          <div class="choice-grid" role="radiogroup" aria-labelledby="situation-label">
+            <label class="choice"><input type="radio" name="situation" value="Between jobs" data-required> Between jobs</label>
+            <label class="choice"><input type="radio" name="situation" value="Employed and planning a break"> Employed and planning a break</label>
+            <label class="choice"><input type="radio" name="situation" value="Freelance or independent"> Freelance or independent</label>
+            <label class="choice"><input type="radio" name="situation" value="Student"> Student</label>
+            <label class="choice"><input type="radio" name="situation" value="Other"> Other</label>
+          </div>
+          <p class="field-error" role="alert">Please choose one option.</p>
+        </div>
+
+        <div class="field">
+          <label for="experience_text">Current or most recent role, and a short note on your experience <span class="req" aria-hidden="true">*</span></label>
+          <textarea id="experience_text" name="experience_text" data-required></textarea>
+          <p class="field-error" role="alert">This field is required.</p>
+        </div>
+
+        <div class="field">
+          <label for="years">Approximate professional experience <span class="req" aria-hidden="true">*</span></label>
+          <select id="years" name="years" data-required>
+            <option value="">Select…</option>
+            <option>No professional experience yet</option>
+            <option>Under 2 years</option>
+            <option>2–5 years</option>
+            <option>6–10 years</option>
+            <option>10+ years</option>
+          </select>
+          <p class="field-error" role="alert">This field is required.</p>
+        </div>
+
+        <div class="field">
+          <label for="portfolio">GitHub, portfolio, or project URL <span class="opt">(optional)</span></label>
+          <input id="portfolio" name="portfolio" type="url" inputmode="url" placeholder="https://…">
+          <p class="field-error" role="alert">Enter a full URL starting with https://</p>
+        </div>
+
+        <div class="form-actions">
+          <a class="btn btn--ghost" href="index.html">Cancel</a>
+          <button type="button" class="btn btn--primary" data-next>Continue</button>
+        </div>
+      </section>
+
+      <!-- Step 2 -->
+      <section class="form-panel" data-step="learn" hidden aria-labelledby="step2-title">
+        <h2 id="step2-title">What do you want to learn?</h2>
+        <p class="hint" style="margin-top:-0.5rem;margin-bottom:1.25rem;color:var(--ink-soft)">You create your own plan and bring your own learning resources. <a href="https://studycoach.diy" target="_blank" rel="noopener noreferrer">studycoach.diy</a> can help turn a goal into a track.</p>
+
+        <div class="field">
+          <span class="label" id="focus-label">Main learning focus <span class="req" aria-hidden="true">*</span></span>
+          <div class="choice-grid" role="radiogroup" aria-labelledby="focus-label">
+            <label class="choice"><input type="radio" name="learning_focus" value="AI/ML or AI engineering" data-required> AI/ML or AI engineering</label>
+            <label class="choice"><input type="radio" name="learning_focus" value="Backend or distributed systems"> Backend or distributed systems</label>
+            <label class="choice"><input type="radio" name="learning_focus" value="Full-stack or frontend"> Full-stack or frontend</label>
+            <label class="choice"><input type="radio" name="learning_focus" value="Online course"> Online course</label>
+            <label class="choice"><input type="radio" name="learning_focus" value="Personal project or startup idea"> Personal project or startup idea</label>
+            <label class="choice"><input type="radio" name="learning_focus" value="Other"> Other</label>
+          </div>
+          <p class="field-error" role="alert">Please choose one option.</p>
+        </div>
+
+        <div class="field">
+          <label for="learning_detail">What specifically would you like to learn or build during the month? <span class="req" aria-hidden="true">*</span></label>
+          <textarea id="learning_detail" name="learning_detail" data-required></textarea>
+          <p class="field-error" role="alert">This field is required.</p>
+        </div>
+
+        <div class="field">
+          <label for="topic_experience">What is your current experience with this topic? <span class="req" aria-hidden="true">*</span></label>
+          <textarea id="topic_experience" name="topic_experience" data-required placeholder="An honest description is more useful than a résumé polish."></textarea>
+          <p class="field-error" role="alert">This field is required.</p>
+        </div>
+
+        <div class="field">
+          <label for="progress_goal">What would meaningful progress look like by the end of 30 days? <span class="req" aria-hidden="true">*</span></label>
+          <textarea id="progress_goal" name="progress_goal" data-required></textarea>
+          <p class="field-error" role="alert">This field is required.</p>
+        </div>
+
+        <div class="field">
+          <span class="label" id="plan-label">Are you already following a course or learning plan? <span class="opt">(optional)</span></span>
+          <div class="choice-grid" role="radiogroup" aria-labelledby="plan-label">
+            <label class="choice"><input type="radio" name="has_plan" id="has-plan-yes" value="Yes"> Yes</label>
+            <label class="choice"><input type="radio" name="has_plan" id="has-plan-no" value="No, not yet"> No, not yet</label>
+          </div>
+        </div>
+
+        <div class="field" id="plan-link-field" hidden>
+          <label for="plan_link">Link to Studycoach plan, course, GitHub repo, or project <span class="opt">(optional)</span></label>
+          <input id="plan_link" name="plan_link" type="url" inputmode="url" placeholder="https://…">
+          <p class="field-error" role="alert">Enter a full URL starting with https://</p>
+        </div>
+
+        <div class="field">
+          <span class="label" id="commit-label">Can you commit to roughly 20 hours/week of self-directed study or building? <span class="req" aria-hidden="true">*</span></span>
+          <div class="choice-grid" role="radiogroup" aria-labelledby="commit-label">
+            <label class="choice"><input type="radio" name="commit_20h" id="commit-yes" value="Yes" data-required> Yes</label>
+            <label class="choice"><input type="radio" name="commit_20h" id="commit-no" value="No"> No</label>
+          </div>
+          <p class="field-error" role="alert">Please choose one option.</p>
+        </div>
+
+        <div class="field" id="commit-alt-field" hidden>
+          <label for="commit-alt">What commitment can you realistically make?</label>
+          <textarea id="commit-alt" name="commit_alt"></textarea>
+          <p class="field-error" role="alert">Please share what commitment you can make.</p>
+        </div>
+
+        <div class="form-actions">
+          <button type="button" class="btn btn--secondary" data-back>Back</button>
+          <button type="button" class="btn btn--primary" data-next>Continue</button>
+        </div>
+      </section>
+
+      <!-- Step 3 -->
+      <section class="form-panel" data-step="fit" hidden aria-labelledby="step3-title">
+        <h2 id="step3-title">Can the residency work for you?</h2>
+
+        <div class="field">
+          <label for="availability">Dates or month you could attend <span class="req" aria-hidden="true">*</span></label>
+          <textarea id="availability" name="availability" data-required placeholder="Free text is fine — cohort dates are not fixed yet."></textarea>
+          <p class="field-error" role="alert">This field is required.</p>
+        </div>
+
+        <div class="field">
+          <label for="budget_core">Budget for the full 30-day core residency <span class="req" aria-hidden="true">*</span></label>
+          <select id="budget_core" name="budget_core" data-required>
+            <option value="">Select…</option>
+            <option>Under ₹50,000</option>
+            <option>₹50,000–60,000</option>
+            <option>₹60,000–70,000</option>
+            <option>₹70,000–80,000</option>
+            <option>Above ₹80,000</option>
+            <option>Need a clearer breakdown before deciding</option>
+          </select>
+          <span class="hint">Current planning estimate is ₹62,000–66,000 in a shared room — not a confirmed final quote.</span>
+          <p class="field-error" role="alert">This field is required.</p>
+        </div>
+
+        <div class="field">
+          <label for="budget_optional">Budget for optional activities <span class="opt">(optional)</span></label>
+          <select id="budget_optional" name="budget_optional">
+            <option value="">Select…</option>
+            <option>₹0</option>
+            <option>Up to ₹5,000</option>
+            <option>₹5,000–10,000</option>
+            <option>₹10,000–20,000</option>
+            <option>More than ₹20,000</option>
+            <option>Undecided</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <span class="label" id="acc-label">Accommodation preference <span class="req" aria-hidden="true">*</span></span>
+          <div class="choice-grid" role="radiogroup" aria-labelledby="acc-label">
+            <label class="choice"><input type="radio" name="accommodation" value="Shared room" data-required> Shared room</label>
+            <label class="choice"><input type="radio" name="accommodation" value="Would consider a private room if available and priced separately"> Would consider a private room if available and priced separately</label>
+            <label class="choice"><input type="radio" name="accommodation" value="Flexible"> Flexible</label>
+          </div>
+          <p class="field-error" role="alert">Please choose one option.</p>
+        </div>
+
+        <div class="field">
+          <span class="label" id="food-label">Food arrangement preference <span class="req" aria-hidden="true">*</span></span>
+          <div class="choice-grid" role="radiogroup" aria-labelledby="food-label">
+            <label class="choice"><input type="radio" name="food" value="Shared community meals most days" data-required> Shared community meals most days</label>
+            <label class="choice"><input type="radio" name="food" value="Two meals a day"> Two meals a day</label>
+            <label class="choice"><input type="radio" name="food" value="Breakfast plus flexible meals"> Breakfast plus flexible meals</label>
+            <label class="choice"><input type="radio" name="food" value="Prefer to arrange my own food"> Prefer to arrange my own food</label>
+            <label class="choice"><input type="radio" name="food" value="Flexible"> Flexible</label>
+          </div>
+          <span class="hint">Exact meal arrangements are still being negotiated.</span>
+          <p class="field-error" role="alert">Please choose one option.</p>
+        </div>
+
+        <div class="field">
+          <label for="diet">Dietary preference <span class="req" aria-hidden="true">*</span></label>
+          <select id="diet" name="diet" data-required>
+            <option value="">Select…</option>
+            <option>Vegetarian</option>
+            <option>Vegan</option>
+            <option>Eggetarian</option>
+            <option>Non-vegetarian</option>
+            <option>Jain</option>
+            <option>No specific preference</option>
+            <option>Other</option>
+          </select>
+          <p class="field-error" role="alert">This field is required.</p>
+        </div>
+
+        <div class="field">
+          <label for="allergies">Food allergies or dietary needs <span class="opt">(optional)</span></label>
+          <textarea id="allergies" name="allergies"></textarea>
+        </div>
+
+        <div class="field">
+          <span class="label">Facilities important to you <span class="opt">(preferences we will try to accommodate — not confirmed amenities)</span></span>
+          <div class="choice-grid">
+            <label class="choice"><input type="checkbox" name="facilities[]" value="Reliable high-speed internet"> Reliable high-speed internet</label>
+            <label class="choice"><input type="checkbox" name="facilities[]" value="Power backup"> Power backup</label>
+            <label class="choice"><input type="checkbox" name="facilities[]" value="Quiet desk or study area"> Quiet desk or study area</label>
+            <label class="choice"><input type="checkbox" name="facilities[]" value="Quiet place for video calls"> Quiet place for video calls</label>
+            <label class="choice"><input type="checkbox" name="facilities[]" value="Heater in winter"> Heater in winter</label>
+            <label class="choice"><input type="checkbox" name="facilities[]" value="Hot water"> Hot water</label>
+            <label class="choice"><input type="checkbox" name="facilities[]" value="Laundry access"> Laundry access</label>
+            <label class="choice"><input type="checkbox" name="facilities[]" value="Desk in room"> Desk in room</label>
+            <label class="choice"><input type="checkbox" name="facilities[]" value="Nearby cafes"> Nearby cafes</label>
+            <label class="choice"><input type="checkbox" name="facilities[]" value="Fitness or yoga nearby"> Fitness or yoga nearby</label>
+            <label class="choice"><input type="checkbox" name="facilities[]" value="Other"> Other</label>
+          </div>
+        </div>
+
+        <div class="field">
+          <span class="label">Optional activities you may join</span>
+          <div class="choice-grid">
+            <label class="choice"><input type="checkbox" name="activities[]" value="Kayaking"> Kayaking</label>
+            <label class="choice"><input type="checkbox" name="activities[]" value="Yoga drop-ins"> Yoga drop-ins</label>
+            <label class="choice"><input type="checkbox" name="activities[]" value="Kirtan or spiritual study"> Kirtan or spiritual study</label>
+            <label class="choice"><input type="checkbox" name="activities[]" value="Hiking or other outdoor activities"> Hiking or other outdoor activities</label>
+            <label class="choice"><input type="checkbox" name="activities[]" value="None for now"> None for now</label>
+            <label class="choice"><input type="checkbox" name="activities[]" value="Not sure"> Not sure</label>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="worthwhile">What would make the month worthwhile for you? <span class="opt">(optional)</span></label>
+          <textarea id="worthwhile" name="worthwhile"></textarea>
+        </div>
+
+        <div class="field">
+          <label for="comments">Any non-negotiable needs or other comments? <span class="opt">(optional)</span></label>
+          <textarea id="comments" name="comments"></textarea>
+        </div>
+
+        <div class="field">
+          <label for="heard">How did you hear about the residency? <span class="opt">(optional)</span></label>
+          <input id="heard" name="heard" type="text">
+        </div>
+
+        <div class="field">
+          <label class="choice" for="consent">
+            <input id="consent" name="consent" type="checkbox" value="Yes" data-required>
+            <span>I understand this is a self-directed residency, that the prices and activities are still being confirmed, and that this form is an expression of interest—not a booking. <span class="req" aria-hidden="true">*</span></span>
+          </label>
+          <p class="field-error" role="alert">Please confirm to continue.</p>
+        </div>
+
+        <div class="form-actions">
+          <button type="button" class="btn btn--secondary" data-back>Back</button>
+          <button type="button" class="btn btn--primary" data-next>Review answers</button>
+        </div>
+      </section>
+
+      <!-- Review -->
+      <section class="form-panel" data-step="review" hidden aria-labelledby="review-title">
+        <h2 id="review-title">Review</h2>
+        <p class="section__lead" style="margin-bottom:1.5rem">Check your answers, then submit. You can go back to edit anything.</p>
+        <div class="review" id="review-summary"></div>
+        <div class="form-actions">
+          <button type="button" class="btn btn--secondary" data-back>Back</button>
+          <button type="submit" class="btn btn--primary" id="submit-btn" data-next>Submit interest</button>
+        </div>
+      </section>
+    </form>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <p><strong>Rishikesh Learning Residency</strong> (working name)</p>
+      <p>Rishikesh, Uttarakhand — venue and dates to be confirmed.</p>
+      <p>After you express interest, I’ll usually follow up on WhatsApp for a short discussion.</p>
+      <div class="site-footer__links">
+        <a href="index.html">Home</a>
+        <a href="https://studycoach.diy" target="_blank" rel="noopener noreferrer">Studycoach</a>
+        <a href="https://github.com/naval200/ai-study" target="_blank" rel="noopener noreferrer">GitHub</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/config.js"></script>
+  <script src="js/apply.js"></script>
+</body>
+</html>
