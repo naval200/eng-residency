@@ -2,6 +2,8 @@
 
 Static two-page site for the **Rishikesh Learning Residency** (working name): a 30-day self-directed learning residency in Rishikesh.
 
+**Live site:** https://naval200.github.io/eng-residency/
+
 - `index.html` — landing page  
 - `apply.html` — multi-step interest form  
 - `css/styles.css` — shared styles  
